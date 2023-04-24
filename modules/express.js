@@ -1,4 +1,5 @@
 const express = require ("express");
+const UserModel = require("../src/database/models/user.mofel");
 
 const app = express();
 
@@ -21,6 +22,12 @@ app.get("/users", (req, res) => {
 
     res.status(200).json(users);
 });
+
+app.post("/users", (req, res) => {
+    const users = UserModel.create(req.body)
+
+    res.status(201).json(user);
+})
 
 const port = 8080;
 
